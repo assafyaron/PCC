@@ -29,14 +29,18 @@ gcc -O3 -D_POSIX_C_SOURCE=200809 -Wall -std=c11 pcc_client.c -o pcc_client
 
 ### Start a client:
 ```sh
-./pcc_client <server_address> <port>
+./pcc_client <server_address> <port> <file_path_name>
 ```
 - `<server_address>`: The IP address or hostname of the server.
 - `<port>`: The port number the server is listening on.
-
-After starting the client, enter a string of text. The client sends the text to the server, which processes it and returns the character counts.
+- `<file_path_name>`: The file path name we want to send to server
 
 ## Example Run
+### "myfilepath.txt":
+```
+"hello world"
+```
+
 ### Server:
 ```sh
 $ ./pcc_server 8080 &
@@ -45,8 +49,8 @@ Server started, listening on port 8080...
 
 ### Client:
 ```sh
-$ ./pcc_client 127.0.0.1 8080
-Enter text: hello world
+$ ./pcc_client 127.0.0.1 8080 "myfilepath.txt"
+# of printable characters: 10
 Character count received from server:
 'h': 1
 'e': 1
