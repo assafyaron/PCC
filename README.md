@@ -21,9 +21,9 @@ gcc -O3 -D_POSIX_C_SOURCE=200809 -Wall -std=c11 pcc_client.c -o pcc_client
 ```
 
 ## Usage
-### Start the server:
+### Start the server in the background:
 ```sh
-./pcc_server <port>
+./pcc_server <port> &
 ```
 - `<port>`: The port number on which the server listens for incoming connections.
 
@@ -39,7 +39,7 @@ After starting the client, enter a string of text. The client sends the text to 
 ## Example Run
 ### Server:
 ```sh
-$ ./pcc_server 8080
+$ ./pcc_server 8080 &
 Server started, listening on port 8080...
 ```
 
